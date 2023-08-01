@@ -1,5 +1,8 @@
 <%@page import="java.sql.Connection"%>
+<%@page import="java.util.*"%>
+<%@page import="com.dao.*"%>
 <%@page import="com.conn.DBConnect"%>
+<%@page import="com.entity.Student"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -18,9 +21,8 @@
 	box-sizing: border-box;
 }
 
-a{
-text-decoration: none;
-
+a {
+	text-decoration: none;
 }
 
 .mainContainer {
@@ -39,6 +41,14 @@ table {
 	border-radius: 30px !important;
 }
 
+td{
+	font-family: sans-serif;
+	border-bottom: 1px solid black;
+	border-radius: 4px;
+	font-weight: 600;
+	color: #000000;
+}
+
 th, td {
 	padding: 10px;
 	text-align: left;
@@ -46,18 +56,23 @@ th, td {
 
 thead {
 	background-color: #f2f2f2;
-	border-radius: 10px;
 	color: Green;
 	font-size: 1.1em;
+	border: 2px solid black;
+	
 }
 
 /* Apply styles to buttons */
 button {
 	padding: 6px 12px;
-	margin: 5px; border : none;
-	cursor: pointer;
-	border-radius: 4px;
+	margin: 5px;
 	border: none;
+	cursor: pointer;
+	border: none;
+}
+
+.ActionButtons{
+	display: flex;
 }
 
 .edit-button {
@@ -80,17 +95,17 @@ button:hover {
 
 	<div class="mainContainer">
 		<%@include file="navbar.jsp"%>
-		
+		<%--
+	to check connection is it established or not... 	
 		<%
 		Connection conn = DBConnect.getConn();
 		out.print(conn);
-		%>
+		%> --%>
 
 
 		<table class="user-table">
 			<thead>
 				<tr>
-					<th>ID</th>
 					<th>Full Name</th>
 					<th>DOB</th>
 					<th>Address</th>
@@ -100,19 +115,31 @@ button:hover {
 				</tr>
 			</thead>
 			<tbody>
+
+				<%
+				StudentDAO dao = new StudentDAO(DBConnect.getConn());
+				List<Student> list = dao.getAllStudent();
+				for (Student s : list) {
+				%>
 				<tr>
-					<td>1</td>
-					<td>John Doe</td>
-					<td>1990-05-15</td>
-					<td>123 Main St</td>
-					<td>B.tech</td>
-					<td>johndoe@example.com</td>
-					<td>
-						<button class="edit-button"> <a href="edit_student.jsp"> Edit </a></button>
+					<td><%= s.getName() %></td>
+					<td><%= s.getDob() %></td>
+					<td><%= s.getAddress() %></td>
+					<td><%= s.getQualification() %></td>
+					<td><%= s.getEmail() %></td>
+					<td class="ActionButtons">
+						<button class="edit-button">
+							<a href="edit_student.jsp"> Edit </a>
+						</button>
 						<button class="delete-button">Delete</button>
 					</td>
 				</tr>
-				<!-- Add more rows here -->
+
+				<%
+				}
+				%>
+
+
 			</tbody>
 		</table>
 	</div>
