@@ -34,19 +34,40 @@ a {
 	width: 100vw;
 	/* border: 2px solid black; */
 	min-height: 100vh;
+	margin-bottom: 30px;
+}
+
+.upText{
+	color: white;
+	margin-bottom: 20px;
+	background-color: black;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.succTxt{
+	text-align: center;
+	margin-bottom: 40px;
+	color: white;
+	font-size: 1.3rem;
+}
+
+.errorTxt{
+	text-align: center;
+	margin-bottom: 40px;
+	color: red;
+	font-size: 1.3rem;
 }
 
 /* Reset default table styles */
 table {
 	border-collapse: collapse;
 	width: 80%;
-	border-radius: 30px !important;
 }
 
 td {
 	font-family: sans-serif;
 	border-bottom: 1px solid black;
-	border-radius: 4px;
 	font-weight: 600;
 	color: #000000;
 }
@@ -56,17 +77,18 @@ th, td {
 	text-align: left;
 }
 
-thead {
+thead tr{
 	background-color: #f2f2f2;
 	color: Green;
 	font-size: 1.1em;
-	border: 2px solid black;
+	border: 1px solid black;
+	border-radius: 20px;
 }
 
 /* Apply styles to buttons */
 button {
 	padding: 6px 12px;
-	margin: 5px;
+	margin: 2px 6px;
 	border: none;
 	cursor: pointer;
 	border: none;
@@ -102,6 +124,8 @@ button:hover {
 		Connection conn = DBConnect.getConn();
 		out.print(conn);
 		%> --%>
+		
+		<h1 class="upText">All Students Details</h1>
 
 		<c:if test="${not empty succMsg }">
 			<p class="succTxt">${succMsg}</p>
@@ -139,10 +163,10 @@ button:hover {
 					<td><%=s.getQualification()%></td>
 					<td><%=s.getEmail()%></td>
 					<td class="ActionButtons">
-						<button class="edit-button">
-							<a href="edit_student.jsp?id=<%=s.getId()%>"> Edit </a>
-						</button>
-						<button class="delete-button">Delete</button>
+						<a href="edit_student.jsp?id=<%=s.getId()%>"><button class="edit-button">
+							 Edit 
+						</button></a>
+						<a href="delete?id=<%=s.getId()%>"><button class="delete-button">Delete</button></a>
 					</td>
 				</tr>
 

@@ -112,7 +112,7 @@ public class StudentDAO {
 			ps.setString(3, student.getAddress());
 			ps.setString(4, student.getQualification());
 			ps.setString(5, student.getEmail());
-			ps.setInt(5, student.getId());
+			ps.setInt(6, student.getId());
 
 			int i = ps.executeUpdate();
 
@@ -125,4 +125,25 @@ public class StudentDAO {
 		return f;
 	}
 
+	public boolean deleteStudent(int id) {
+		
+		boolean f = false;
+		try {
+			String sql = "delete from student where id=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			
+			int i = ps.executeUpdate();
+			
+			if(i == 1) {
+				f = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f;
+		
+	}
 }

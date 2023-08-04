@@ -23,6 +23,7 @@
         background-repeat: no-repeat;
         font-family: "Sansita Swashed", cursive;
         width: 100vw;
+        overflow-x: hidden; 
     }
 
     .navbox {
@@ -31,14 +32,13 @@
         width: 95%;
         padding: 10px;
         margin-top: 10px;
-        border-radius: 10px;
         border: 2px solid black;
         color: white;
         font-weight: 600;
         align-items: center;
         justify-content: center;
         margin-bottom: 50px;
-        background-color: transparent;
+        border-radius: 10px;
     }
 
     .navItem {
@@ -63,7 +63,7 @@
             <a href="index.jsp" class="navItem">Home</a>
             <a href="add_student.jsp" class="navItem">Add Student</a>
             <a href="edit_student.jsp" class="navItem">Edit Student</a>
-            <a href="add_student.jsp" class="navItem">About</a>
+            <a href="about.jsp" class="navItem">About</a>
         </div>
 
 </body>
