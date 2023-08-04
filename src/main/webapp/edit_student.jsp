@@ -47,7 +47,7 @@ body {
 		
 				<h1>Edit Student</h1>
 				
-				<%
+				<%					
 					int id = Integer.parseInt(request.getParameter("id"));
 					StudentDAO dao = new StudentDAO(DBConnect.getConn());
 					Student s = dao.getStudentById(id);

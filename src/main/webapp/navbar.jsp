@@ -62,7 +62,7 @@
         <div class="navbox">
             <a href="index.jsp" class="navItem">Home</a>
             <a href="add_student.jsp" class="navItem">Add Student</a>
-            <a href="edit_student.jsp" class="navItem">Edit Student</a>
+<!--             <a href="edit_student.jsp" class="navItem">Edit Student</a> -->
             <a href="about.jsp" class="navItem">About</a>
         </div>
 

@@ -15,7 +15,8 @@
 .center {
 	position: relative;
 	padding: 50px 50px;
-	background: #ffffff;
+	/* background: #ffffff; */
+	background-color: #333;
 	border-radius: 10px;
 	width: 550px;
 	/* border: 2px solid black; */
@@ -25,7 +26,7 @@
 	font-size: 2em;
 	border-left: 5px solid dodgerblue;
 	padding: 10px;
-	/* color: #000; */
+	color: #ffc107;
 	letter-spacing: 5px;
 	margin-bottom: 60px;
 	font-weight: bold;
@@ -59,12 +60,13 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	border: 2px solid #000;
+	border: 2px solid gray;
 	outline: none;
 	background: none;
 	padding: 10px;
 	border-radius: 10px;
 	font-size: 1.2em;
+	color: white;
 }
 
 .center .inputbox:last-child {
@@ -78,6 +80,7 @@
 	left: 0px;
 	font-size: 1.1em;
 	font-family: sans-serif;
+	color: white;
 } 
 
 .center .inputbox .subButton {
