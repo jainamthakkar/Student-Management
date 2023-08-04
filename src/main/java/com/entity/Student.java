@@ -25,6 +25,18 @@ public class Student {
 		this.email = email;
 	}
 
+	
+
+	public Student(int id, String name, String dob, String address, String qualification, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dob = dob;
+		this.address = address;
+		this.qualification = qualification;
+		this.email = email;
+	}
+
 
 	public int getId() {
 		return id;

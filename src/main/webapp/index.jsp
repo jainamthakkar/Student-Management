@@ -3,9 +3,10 @@
 <%@page import="com.dao.*"%>
 <%@page import="com.conn.DBConnect"%>
 <%@page import="com.entity.Student"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,7 @@
 
 a {
 	text-decoration: none;
+	color: white;
 }
 
 .mainContainer {
@@ -41,7 +43,7 @@ table {
 	border-radius: 30px !important;
 }
 
-td{
+td {
 	font-family: sans-serif;
 	border-bottom: 1px solid black;
 	border-radius: 4px;
@@ -59,7 +61,6 @@ thead {
 	color: Green;
 	font-size: 1.1em;
 	border: 2px solid black;
-	
 }
 
 /* Apply styles to buttons */
@@ -69,20 +70,20 @@ button {
 	border: none;
 	cursor: pointer;
 	border: none;
+	color: white;
+	border-radius: 4px;
 }
 
-.ActionButtons{
+.ActionButtons {
 	display: flex;
 }
 
 .edit-button {
 	background-color: #4CAF50;
-	color: white;
 }
 
 .delete-button {
 	background-color: #f44336;
-	color: white;
 }
 
 /* Style the buttons on hover */
@@ -101,6 +102,16 @@ button:hover {
 		Connection conn = DBConnect.getConn();
 		out.print(conn);
 		%> --%>
+
+		<c:if test="${not empty succMsg }">
+			<p class="succTxt">${succMsg}</p>
+			<c:remove var="succMsg" />
+		</c:if>
+
+		<c:if test="${not empty errorMsg }">
+			<p class="errorTxt">${errorMsg}</p>
+			<c:remove var="errorMsg" />
+		</c:if>
 
 
 		<table class="user-table">
@@ -122,14 +133,14 @@ button:hover {
 				for (Student s : list) {
 				%>
 				<tr>
-					<td><%= s.getName() %></td>
-					<td><%= s.getDob() %></td>
-					<td><%= s.getAddress() %></td>
-					<td><%= s.getQualification() %></td>
-					<td><%= s.getEmail() %></td>
+					<td><%=s.getName()%></td>
+					<td><%=s.getDob()%></td>
+					<td><%=s.getAddress()%></td>
+					<td><%=s.getQualification()%></td>
+					<td><%=s.getEmail()%></td>
 					<td class="ActionButtons">
 						<button class="edit-button">
-							<a href="edit_student.jsp"> Edit </a>
+							<a href="edit_student.jsp?id=<%=s.getId()%>"> Edit </a>
 						</button>
 						<button class="delete-button">Delete</button>
 					</td>
@@ -138,7 +149,6 @@ button:hover {
 				<%
 				}
 				%>
-
 
 			</tbody>
 		</table>

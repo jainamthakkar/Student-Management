@@ -32,13 +32,13 @@
         padding: 10px;
         margin-top: 10px;
         border-radius: 10px;
-        background: transparent;
         border: 2px solid black;
         color: white;
         font-weight: 600;
         align-items: center;
         justify-content: center;
         margin-bottom: 50px;
+        background-color: transparent;
     }
 
     .navItem {
@@ -46,12 +46,14 @@
         color: #ffffff;
         text-decoration: none;
         font-size: larger;
+        transition: 0.2s;
     }
 
     .navItem:hover {
-        color: #000000;
+         color: #000000; 
         text-decoration: none;
         cursor: pointer;
+        transform: scale(1.2);
     }
 </style>
 

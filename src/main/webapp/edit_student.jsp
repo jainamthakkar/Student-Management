@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page import="com.conn.DBConnect"%>
+<%@page import="com.dao.*"%>
+<%@page import="com.entity.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,36 +38,50 @@ body {
 
 <body>
 
-	<div class="container">
+		<div class="container">
 
 		<%@include file="navbar.jsp"%>
+		
 		<main class="mainForm">
 			<div class="center ">
+		
 				<h1>Edit Student</h1>
+				
+				<%
+					int id = Integer.parseInt(request.getParameter("id"));
+					StudentDAO dao = new StudentDAO(DBConnect.getConn());
+					Student s = dao.getStudentById(id);
+				%>
 
-				<form action="" method="post">
-				
-				<div class="inputbox">
-						<label class="inputLable">Full Name</label><input type="text" name="name" required="required">  
+				<form action="update" method="post">
+
+					<div class="inputbox">
+						<label class="inputLable">Full Name</label><input type="text"
+							value="<%=s.getName() %>" name="name" required="required">
 					</div>
-					
+
 					<div class="inputbox">
-						<label class="inputLable">Date of Birth</label><input type="date" name="dob" required="required"> 
+						<label class="inputLable">Date of Birth</label><input type="date"
+							value="<%=s.getDob() %>"name="dob" required="required">
 					</div>
-					
+
 					<div class="inputbox">
-						<label class="inputLable">Address</label><input type="text" name="address" required="required"> 
+						<label class="inputLable">Address</label><input type="text"
+							value="<%=s.getAddress() %>"name="address" required="required">
 					</div>
-					
+
 					<div class="inputbox">
-						<label class="inputLable">Qualification</label><input type="text" name="qualification" required="required"> 
+						<label class="inputLable">Qualification</label><input type="text"
+							value="<%=s.getQualification() %>"name="qualification" required="required">
 					</div>
-				
+
 					<div class="inputbox">
-						<label class="inputLable">Email</label><input type="text" name="email" required="required"> 
-					</div>				
+						<label class="inputLable">Email</label><input type="text"
+							value="<%=s.getEmail() %>"name="email" required="required">
+					</div>
 					<div class="inputbox">
-						<input type="button" value="submit">
+						<input type="hidden" name="id" value="<%=s.getId()%>"></input>
+						<button type="submit" class="subButton">Update</button>
 					</div>
 				</form>
 			</div>

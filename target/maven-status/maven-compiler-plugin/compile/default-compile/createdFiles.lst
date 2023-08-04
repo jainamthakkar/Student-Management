@@ -1,4 +1,0 @@
-com\conn\DBConnect.class
-com\dao\StudentDAO.class
-com\servlet\RegisterServlet.class
-com\entity\Student.class
