@@ -6,17 +6,28 @@
 ### Techs
 
 
-*   **Front-End ** 
+###   **Front-End** 
 		
-######	 	JSP, CSS
+#####	 	JSP(Java Server Pages), CSS
 
 
-*   **Backend**
+###   **Backend**
 
-##### 		Advance java
+##### 		Advance java (Servlet)
 
-*	**Database**
+###	**Database**
 
 ##### MYSQL
 
+##### **IDE**
+
+#####	Eclipse 2023
+
+###	**Server**
+
+#####	Tomcat server version 10.1
+
+####	**Video : **
+
+####### https://twitter.com/jainam_thakkar/status/1690606968673878016?s=20
 
