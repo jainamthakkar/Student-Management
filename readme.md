@@ -19,7 +19,7 @@
 
 ##### MYSQL
 
-##### **IDE**
+#####**IDE**
 
 #####	Eclipse 2023
 
@@ -27,7 +27,7 @@
 
 #####	Tomcat server version 10.1
 
-####	**Video : **
+####**Video :**
 
-####### https://twitter.com/jainam_thakkar/status/1690606968673878016?s=20
+###### https://twitter.com/jainam_thakkar/status/1690606968673878016?s=20
 
